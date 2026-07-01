@@ -17,18 +17,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[]; // will be filled in initState
+  late final List<Widget> _widgetOptions;
 
   @override
   void initState() {
     super.initState();
-    // Initialize widget options after repository is ready
-    _widgetOptions.addAll([
+    _widgetOptions = [
       WeatherScreen(repository: widget.repository),
       MapScreen(repository: widget.repository),
       SpotsScreen(repository: widget.repository),
       LogScreen(),
-    ]);
+    ];
   }
 
   void _onItemTapped(int index) {
