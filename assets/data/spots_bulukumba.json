@@ -1,0 +1,197 @@
+[
+  {
+    "id": "spot_001",
+    "name": "Pantai Mandallmanna",
+    "description": "Pantai indah dengan spot mancing tradisional, sering ditemukan ikan Kerapu dan Baracuda.",
+    "latitude": -5.5566,
+    "longitude": 120.1923,
+    "type": "pantai",
+    "depth_range": "3-8 meter",
+    "coral_zones": [
+      {"lat": -5.5570, "lng": 120.1925, "type": "coral_reef", "depth": 3},
+      {"lat": -5.5565, "lng": 120.1930, "type": "coral_reef", "depth": 4}
+    ],
+    "fish_spots": [
+      {"lat": -5.5568, "lng": 120.1927, "fish_types": ["Kerapu", "Baracuda", "Teri"], "best_time": "06:00-09:00"},
+      {"lat": -5.5562, "lng": 120.1932, "fish_types": ["Kakap", "Tongkol"], "best_time": "17:00-20:00"}
+    ],
+    "amenities": ["Warung makan", "Area parkir", "Toilet"],
+    "best_season": "April - Oktober",
+    "difficulty": "mudah"
+  },
+  {
+    "id": "spot_002",
+    "name": "Pantai Bira",
+    "description": "Pantai terkenal dengan pasir putihnya, spot mancing dari atas batu karang.",
+    "latitude": -5.5912,
+    "longitude": 120.2356,
+    "type": "tebing_karang",
+    "depth_range": "5-15 meter",
+    "coral_zones": [
+      {"lat": -5.5920, "lng": 120.2360, "type": "coral_reef", "depth": 5},
+      {"lat": -5.5905, "lng": 120.2370, "type": "coral_reef", "depth": 7}
+    ],
+    "fish_spots": [
+      {"lat": -5.5915, "lng": 120.2365, "fish_types": ["Ikan Napoleon", "Kerapu", "Marlin"], "best_time": "05:00-08:00"},
+      {"lat": -5.5908, "lng": 120.2375, "fish_types": ["Tuna", "Mahi-mahi"], "best_time": "08:00-11:00"}
+    ],
+    "amenities": ["Resort", "Restaurant", "Rental perahu"],
+    "best_season": "September - November",
+    "difficulty": "sedang"
+  },
+  {
+    "id": "spot_003",
+    "name": "Muara Sungai Lemo-Lemo",
+    "description": "Muara sungai dengan air payau, spot bagus untuk mancing ikan air tawar dan payau.",
+    "latitude": -5.5123,
+    "longitude": 120.1545,
+    "type": "muara",
+    "depth_range": "2-5 meter",
+    "coral_zones": [
+      {"lat": -5.5130, "lng": 120.1550, "type": "mangrove", "depth": 2}
+    ],
+    "fish_spots": [
+      {"lat": -5.5125, "lng": 120.1550, "fish_types": ["Ikan Gabus", "Ikan Belanak", "Ikan Pedang"], "best_time": "06:00-10:00"},
+      {"lat": -5.5118, "lng": 120.1540, "fish_types": ["Udang", "Kepiting"], "best_time": "15:00-18:00"}
+    ],
+    "amenities": ["Warung", "Perahu sewa"],
+    "best_season": "Desember - Februari",
+    "difficulty": "mudah"
+  },
+  {
+    "id": "spot_004",
+    "name": "Pulau Selayar",
+    "description": "Pulau dengan terumbu karang eksotis, spot diving dan memancing deep sea.",
+    "latitude": -5.6234,
+    "longitude": 120.4512,
+    "type": "pulau",
+    "depth_range": "10-30 meter",
+    "coral_zones": [
+      {"lat": -5.6240, "lng": 120.4520, "type": "coral_reef", "depth": 10},
+      {"lat": -5.6225, "lng": 120.4505, "type": "deep_coral", "depth": 20}
+    ],
+    "fish_spots": [
+      {"lat": -5.6235, "lng": 120.4515, "fish_types": ["Marlin", "Tuna", "Swordfish"], "best_time": "04:00-07:00"},
+      {"lat": -5.6228, "lng": 120.4508, "fish_types": ["Kerapu", "Ikan Napoleon", "Baracuda"], "best_time": "07:00-10:00"}
+    ],
+    "amenities": ["Penginapan", "Dive center", "Boat charter"],
+    "best_season": "Juni - September",
+    "difficulty": "sulit"
+  },
+  {
+    "id": "spot_005",
+    "name": "Tanjung Bira",
+    "description": "Tanjung dengan formasi karang yang baik, spot mancing dari atas batu.",
+    "latitude": -5.5834,
+    "longitude": 120.2289,
+    "type": "tanjung",
+    "depth_range": "8-20 meter",
+    "coral_zones": [
+      {"lat": -5.5840, "lng": 120.2295, "type": "coral_reef", "depth": 8},
+      {"lat": -5.5830, "lng": 120.2280, "type": "drop_off", "depth": 15}
+    ],
+    "fish_spots": [
+      {"lat": -5.5837, "lng": 120.2292, "fish_types": ["Tuna", "Kakap", "Baracuda"], "best_time": "05:00-09:00"},
+      {"lat": -5.5828, "lng": 120.2275, "fish_types": ["Marlin", "Sailfish"], "best_time": "06:00-10:00"}
+    ],
+    "amenities": ["Area kemping", "Warung"],
+    "best_season": "Mei - Oktober",
+    "difficulty": "sedang"
+  },
+  {
+    "id": "spot_006",
+    "name": "Perairan Tanakeke",
+    "description": "Pulau kecil dengan perairan jernih, spot mancing tradisional dan modern.",
+    "latitude": -5.6456,
+    "longitude": 120.3823,
+    "type": "pulau",
+    "depth_range": "5-25 meter",
+    "coral_zones": [
+      {"lat": -5.6462, "lng": 120.3830, "type": "coral_reef", "depth": 5},
+      {"lat": -5.6450, "lng": 120.3815, "type": "coral_reef", "depth": 12}
+    ],
+    "fish_spots": [
+      {"lat": -5.6458, "lng": 120.3828, "fish_types": ["Kerapu", "Ikan Ekor Kuning", "Baracuda"], "best_time": "06:00-09:00"},
+      {"lat": -5.6445, "lng": 120.3810, "fish_types": ["Tuna", "Tongkol"], "best_time": "07:00-11:00"}
+    ],
+    "amenities": ["Homestay", "Boat rental"],
+    "best_season": "Agustus - Oktober",
+    "difficulty": "sedang"
+  },
+  {
+    "id": "spot_007",
+    "name": "Sungai Biru",
+    "description": "Sungai dengan pemandangan tebing kapur, spot mancing di tepi sungai.",
+    "latitude": -5.5234,
+    "longitude": 120.1834,
+    "type": "sungai",
+    "depth_range": "3-8 meter",
+    "coral_zones": [],
+    "fish_spots": [
+      {"lat": -5.5240, "lng": 120.1840, "fish_types": ["Ikan Gabus", "Ikan Jelawat", "Ikan Baung"], "best_time": "06:00-10:00"},
+      {"lat": -5.5228, "lng": 120.1830, "fish_types": ["Udang galah", "Kepiting"], "best_time": "17:00-19:00"}
+    ],
+    "amenities": ["Warung teh", "Perahu"],
+    "best_season": "November - Maret",
+    "difficulty": "mudah"
+  },
+  {
+    "id": "spot_008",
+    "name": "Pantai Appatalleleng",
+    "description": "Pantai dengan dermaga kecil, cocok untuk mancing dari dermaga.",
+    "latitude": -5.5432,
+    "longitude": 120.2012,
+    "type": "dermaga",
+    "depth_range": "4-10 meter",
+    "coral_zones": [
+      {"lat": -5.5438, "lng": 120.2018, "type": "coral_reef", "depth": 6}
+    ],
+    "fish_spots": [
+      {"lat": -5.5435, "lng": 120.2015, "fish_types": ["Kerapu", "Kakap", "Ikan Teri"], "best_time": "18:00-21:00"},
+      {"lat": -5.5428, "lng": 120.2008, "fish_types": ["Baracuda kecil", "Tongkol"], "best_time": "05:00-08:00"}
+    ],
+    "amenities": ["Warung", "Toilet", "Parkir"],
+    "best_season": "Juni - September",
+    "difficulty": "mudah"
+  },
+  {
+    "id": "spot_009",
+    "name": "Perairan Bonto-bonto",
+    "description": "Perairan dangkal dengan banyak terumbu karang, spot snorkeling dan mancing.",
+    "latitude": -5.5723,
+    "longitude": 120.2134,
+    "type": "perairan_dangkal",
+    "depth_range": "1-5 meter",
+    "coral_zones": [
+      {"lat": -5.5730, "lng": 120.2140, "type": "coral_reef", "depth": 2},
+      {"lat": -5.5715, "lng": 120.2128, "type": "coral_reef", "depth": 3}
+    ],
+    "fish_spots": [
+      {"lat": -5.5728, "lng": 120.2137, "fish_types": ["Ikan badong", "Ikan parrot", "Ikan moorish idol"], "best_time": "09:00-12:00"},
+      {"lat": -5.5718, "lng": 120.2130, "fish_types": ["Kerapu", "Ikan butterfly"], "best_time": "14:00-17:00"}
+    ],
+    "amenities": ["Home stay", "Boat rental"],
+    "best_season": "April - Oktober",
+    "difficulty": "mudah"
+  },
+  {
+    "id": "spot_010",
+    "name": "Tanjung Loka",
+    "description": "Tanjung terpencil dengan karang terjal, spot untuk mancing berpengalaman.",
+    "latitude": -5.6102,
+    "longitude": 120.2890,
+    "type": "tanjung",
+    "depth_range": "12-30 meter",
+    "coral_zones": [
+      {"lat": -5.6108, "lng": 120.2896, "type": "drop_off", "depth": 12},
+      {"lat": -5.6095, "lng": 120.2885, "type": "deep_coral", "depth": 25}
+    ],
+    "fish_spots": [
+      {"lat": -5.6105, "lng": 120.2893, "fish_types": ["Marlin", "Tuna", "Wahoo"], "best_time": "05:00-08:00"},
+      {"lat": -5.6092, "lng": 120.2880, "fish_types": ["Swordfish", "Mahi-mahi"], "best_time": "06:00-10:00"}
+    ],
+    "amenities": [],
+    "best_season": "Juli - Oktober",
+    "difficulty": "sulit"
+  }
+]
