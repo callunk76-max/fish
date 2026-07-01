@@ -14,13 +14,43 @@ class SpotsScreen extends StatefulWidget {
 
 class _SpotsScreenState extends State<SpotsScreen> {
   List<FishingSpot> _spots = [];
+  List<FishingSpot> _filteredSpots = [];
   bool _loading = true;
+  bool _searching = false;
   String? _error;
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _loadSpots();
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _updateSearch(String query) {
+    setState(() {
+      _filteredSpots = _spots
+          .where((spot) =>
+              spot.name.toLowerCase().contains(query.toLowerCase()) ||
+              spot.description.toLowerCase().contains(query.toLowerCase()) ||
+              spot.type.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
+  }
+
+  void _toggleSearch() {
+    setState(() {
+      _searching = !_searching;
+      if (!_searching) {
+        _searchController.clear();
+        _filteredSpots = _spots;
+      }
+    });
   }
 
   Future<void> _loadSpots() async {
@@ -32,6 +62,7 @@ class _SpotsScreenState extends State<SpotsScreen> {
       final spots = await widget.repository.getAllSpots();
       setState(() {
         _spots = spots;
+        _filteredSpots = spots;
       });
     } catch (e) {
       setState(() {
@@ -138,37 +169,131 @@ class _SpotsScreenState extends State<SpotsScreen> {
       return const Center(child: CircularProgressIndicator());
     }
     if (_error != null) {
-      return Center(child: Text('Gagal memuat spot: $_error'));
-    }
-    return RefreshIndicator(
-      onRefresh: _loadSpots,
-      child: ListView.builder(
-        padding: const EdgeInsets.all(12),
-        itemCount: _spots.length,
-        itemBuilder: (context, index) {
-          final spot = _spots[index];
-          return Card(
-            margin: const EdgeInsets.symmetric(vertical: 6),
-            child: ListTile(
-              leading: const CircleAvatar(
-                backgroundColor: AppTheme.accentColor,
-                child: Icon(Icons.location_on, color: Colors.white),
-              ),
-              title: Text(spot.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-              subtitle: Text(spot.description, maxLines: 2, overflow: TextOverflow.ellipsis),
-              trailing: Chip(
-                label: Text(spot.difficulty),
-                backgroundColor: spot.difficulty == 'mudah'
-                    ? AppTheme.successColor.withValues(alpha: 0.2)
-                    : spot.difficulty == 'sedang'
-                        ? AppTheme.warningColor.withValues(alpha: 0.2)
-                        : AppTheme.errorColor.withValues(alpha: 0.2),
-              ),
-              onTap: () => _showSpotDetails(spot),
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.error_outline, size: 48, color: Colors.red),
+            const SizedBox(height: 16),
+            Text('Gagal memuat spot', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            Text(_error!, textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodySmall),
+            const SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: _loadSpots,
+              icon: const Icon(Icons.refresh),
+              label: const Text('Coba lagi'),
             ),
-          );
-        },
-      ),
+          ],
+        ),
+      );
+    }
+    return Column(
+      children: [
+        // Search bar + toggle
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+          child: Row(
+            children: [
+              Expanded(
+                child: _searching
+                    ? TextField(
+                        controller: _searchController,
+                        autofocus: true,
+                        decoration: InputDecoration(
+                          hintText: 'Cari nama, jenis, atau deskripsi...',
+                          prefixIcon: const Icon(Icons.search),
+                          suffixIcon: IconButton(
+                            icon: const Icon(Icons.clear),
+                            onPressed: () {
+                              _searchController.clear();
+                              _updateSearch('');
+                            },
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        ),
+                        onChanged: _updateSearch,
+                      )
+                    : const SizedBox.shrink(),
+              ),
+              if (_searching) const SizedBox(width: 8),
+              IconButton(
+                onPressed: _toggleSearch,
+                icon: Icon(_searching ? Icons.close : Icons.search),
+                tooltip: _searching ? 'Tutup pencarian' : 'Cari spot',
+                style: IconButton.styleFrom(
+                  backgroundColor: _searching
+                      ? AppTheme.errorColor.withValues(alpha: 0.1)
+                      : AppTheme.primaryColor.withValues(alpha: 0.1),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // Results count
+        if (_searching)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+            child: Row(
+              children: [
+                Text(
+                  '${_filteredSpots.length} dari ${_spots.length} spot ditemukan',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
+        // List
+        Expanded(
+          child: _filteredSpots.isEmpty
+              ? Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.search_off, size: 48, color: Colors.grey),
+                      const SizedBox(height: 16),
+                      Text(
+                        _searching ? 'Spot tidak ditemukan' : 'Belum ada spot',
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                )
+              : RefreshIndicator(
+                  onRefresh: _loadSpots,
+                  child: ListView.builder(
+                    padding: const EdgeInsets.all(12),
+                    itemCount: _filteredSpots.length,
+                    itemBuilder: (context, index) {
+                      final spot = _filteredSpots[index];
+                      return Card(
+                        margin: const EdgeInsets.symmetric(vertical: 6),
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: AppTheme.accentColor,
+                            child: const Icon(Icons.location_on, color: Colors.white),
+                          ),
+                          title: Text(spot.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+                          subtitle: Text(spot.description, maxLines: 2, overflow: TextOverflow.ellipsis),
+                          trailing: Chip(
+                            label: Text(spot.difficulty),
+                            backgroundColor: spot.difficulty == 'mudah'
+                                ? AppTheme.successColor.withValues(alpha: 0.2)
+                                : spot.difficulty == 'sedang'
+                                    ? AppTheme.warningColor.withValues(alpha: 0.2)
+                                    : AppTheme.errorColor.withValues(alpha: 0.2),
+                          ),
+                          onTap: () => _showSpotDetails(spot),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+        ),
+      ],
     );
   }
 }
