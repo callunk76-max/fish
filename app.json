@@ -1,0 +1,73 @@
+{
+  "expo": {
+    "name": "FishApp",
+    "slug": "mobile-fish-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#023047"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.callunk.mobilefishapp",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "FishApp butuh lokasi untuk menampilkan cuaca dan spot mancing di sekitarmu.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "FishApp butuh lokasi untuk menampilkan cuaca dan spot mancing di sekitarmu.",
+        "NSPhotoLibraryUsageDescription": "FishApp butuh akses foto untuk mengupload gambar tangkapan.",
+        "NSCameraUsageDescription": "FishApp butuh akses kamera untuk foto tangkapan.",
+        "UIBackgroundModes": ["location"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#023047"
+      },
+      "package": "com.callunk.mobilefishapp",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+        }
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Izinkan FishApp mengakses lokasimu untuk menampilkan cuaca dan spot mancing di sekitar.",
+          "locationAlwaysPermission": "Izinkan FishApp mengakses lokasimu di latar belakang.",
+          "locationWhenInUsePermission": "Izinkan FishApp mengakses lokasimu."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Izinkan FishApp mengakses kamera untuk foto tangkapan.",
+          "microphonePermission": "Izinkan FishApp mengakses mikrofon.",
+          "recordAudioAndroid": true
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

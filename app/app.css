@@ -1,0 +1,262 @@
+/* Mobile Fish App - Ocean Dark Theme */
+@import '@nativescript/theme/css/light.css';
+@import '@nativescript/theme/css/default.css';
+
+/* Base Variables */
+:root {
+  --primary: #0077B6;
+  --secondary: #00B4D8;
+  --accent: #90E0EF;
+  --background: #023047;
+  --surface: #03045E;
+  --card-bg: #048;
+  --text-primary: #FFFFFF;
+  --text-secondary: #90E0EF;
+  --coral: #FF6B6B;
+  --success: #4CAF50;
+  --warning: #FF9800;
+  --danger: #F44336;
+}
+
+/* Global Styles */
+Page {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: 'System', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+ActionBar {
+  background-color: var(--primary);
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+TabView {
+  background-color: var(--surface);
+  selected-tab-text-color: var(--accent);
+  tab-text-color: var(--text-secondary);
+}
+
+/* Navigation Drawer */
+.nav-drawer {
+  background-color: var(--surface);
+}
+
+.nav-header {
+  background-color: var(--primary);
+  padding: 20;
+  color: white;
+}
+
+.nav-header-title {
+  font-size: 22;
+  font-weight: bold;
+  margin-top: 10;
+}
+
+.nav-header-subtitle {
+  font-size: 14;
+  color: var(--accent);
+}
+
+/* Cards */
+.fish-card {
+  background-color: var(--card-bg);
+  border-radius: 16;
+  margin: 10 15;
+  padding: 15;
+  elevation: 4;
+}
+
+.fish-card-title {
+  font-size: 18;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 8;
+}
+
+.fish-card-subtitle {
+  font-size: 14;
+  color: var(--text-secondary);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border-radius: 25;
+  padding: 12 25;
+  font-size: 16;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-width: 2;
+  border-color: var(--accent);
+  color: var(--accent);
+  border-radius: 25;
+  padding: 10 25;
+  font-size: 16;
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+  border-radius: 25;
+  padding: 10 20;
+  font-size: 14;
+}
+
+/* Input Fields */
+.fish-input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-width: 1;
+  border-color: var(--accent);
+  border-radius: 10;
+  padding: 12 15;
+  color: var(--text-primary);
+  font-size: 16;
+  margin: 10 0;
+}
+
+.fish-input:focus {
+  border-color: var(--secondary);
+  border-width: 2;
+}
+
+/* Weather Widget */
+.weather-card {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 20;
+  padding: 20;
+  margin: 10 15;
+  elevation: 6;
+}
+
+.weather-temp {
+  font-size: 48;
+  font-weight: bold;
+  color: white;
+}
+
+.weather-desc {
+  font-size: 16;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.weather-location {
+  font-size: 14;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 5;
+}
+
+/* Spot List */
+.spot-item {
+  background-color: var(--card-bg);
+  border-radius: 12;
+  padding: 15;
+  margin: 8 15;
+  border-left-width: 4;
+  border-left-color: var(--primary);
+}
+
+.spot-name {
+  font-size: 16;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.spot-info {
+  font-size: 13;
+  color: var(--text-secondary);
+  margin-top: 4;
+}
+
+/* Difficulty Badge */
+.badge-easy {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: var(--success);
+  padding: 4 12;
+  border-radius: 15;
+  font-size: 12;
+}
+
+.badge-medium {
+  background-color: rgba(255, 152, 0, 0.2);
+  color: var(--warning);
+  padding: 4 12;
+  border-radius: 15;
+  font-size: 12;
+}
+
+.badge-hard {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: var(--danger);
+  padding: 4 12;
+  border-radius: 15;
+  font-size: 12;
+}
+
+/* Sonar Animation */
+.sonar-ring {
+  border-width: 2;
+  border-color: var(--accent);
+  border-radius: 50%;
+  animation: sonar-pulse 2s infinite;
+}
+
+@keyframes sonar-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Loading States */
+.skeleton {
+  background: linear-gradient(90deg, var(--card-bg) 25%, rgba(255,255,255,0.1) 50%, var(--card-bg) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ScrollView */
+.scroll-view {
+  background-color: var(--background);
+}
+
+/* ListView */
+.list-view {
+  separator-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Modal */
+.modal-container {
+  background-color: var(--surface);
+  border-top-left-radius: 25;
+  border-top-right-radius: 25;
+  padding: 25;
+}
+
+/* FAB */
+.fab-button {
+  background-color: var(--secondary);
+  border-radius: 30;
+  width: 60;
+  height: 60;
+  elevation: 8;
+  shadow-color: var(--secondary);
+  shadow-offset: 0 4;
+  shadow-opacity: 0.4;
+  shadow-radius: 8;
+}
