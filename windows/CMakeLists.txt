@@ -1,3 +1,4 @@
+add_definitions(-D_SILENCE_EXPERIMENTAL_COROUTINE_DEPRECATION_WARNINGS)
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
 project(fishing_hobby_app LANGUAGES CXX)
