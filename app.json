@@ -1,11 +1,11 @@
 {
   "expo": {
     "name": "FishApp",
-    "slug": "mobile-fish-app",
+    "slug": "fish-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -13,33 +13,14 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.callunk.mobilefishapp",
-      "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "FishApp butuh lokasi untuk menampilkan cuaca dan spot mancing di sekitarmu.",
-        "NSLocationAlwaysAndWhenInUseUsageDescription": "FishApp butuh lokasi untuk menampilkan cuaca dan spot mancing di sekitarmu.",
-        "NSPhotoLibraryUsageDescription": "FishApp butuh akses foto untuk mengupload gambar tangkapan.",
-        "NSCameraUsageDescription": "FishApp butuh akses kamera untuk foto tangkapan."
-      }
+      "bundleIdentifier": "com.callunk.fishapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#023047"
       },
-      "package": "com.callunk.mobilefishapp",
-      "permissions": [
-        "ACCESS_FINE_LOCATION",
-        "ACCESS_COARSE_LOCATION",
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE",
-        "RECORD_AUDIO"
-      ],
-      "config": {
-        "googleMaps": {
-          "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
-        }
-      }
+      "package": "com.callunk.fishapp"
     },
     "web": {
       "bundler": "metro",
@@ -47,31 +28,8 @@
     },
     "plugins": [
       "expo-router",
-      "expo-localization",
-      "expo-document-picker",
-      "expo-media-library",
       "expo-location",
-      "expo-camera",
-      "expo-image-picker",
-      "expo-notifications",
-      "expo-splash-screen",
-      "expo-system-ui",
-      "expo-asset",
-      "expo-font",
-      "expo-linear-gradient",
-      "expo-permissions",
-      "@react-native-async-storage/async-storage",
-      "react-native-gesture-handler",
-      "react-native-maps",
-      "react-native-screens",
-      "react-native-vector-icons",
-      "react-native-webview",
-      "expo-image-manipulator"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "YOUR_EXPO_PROJECT_ID"
-      }
-    }
+      "expo-camera"
+    ]
   }
 }
